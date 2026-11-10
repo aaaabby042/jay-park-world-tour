@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: white;
+  font-family: "Arial Black",Arial, Helvetica, sans-serif;
+}
+
+/* Poster */
+
+.poster {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 3 / 4;
+  margin: 0 auto;
+  background-color: #0a0a0a;
+  overflow: visible;
+}
+
+/* Slogan */
+
+.slogan {
+  position: absolute;
+  top: 4%;
+  right: -5%;
+  font-size: clamp(9px, 2.5vw, 28px);
+  font-weight: 800;
+  z-index: 3;
+}
+
+/* Main title */
+
+.title {
+  position: absolute;
+  top: 3%;
+  left: -18%;
+  width: 90%;
+  z-index: 3;
+}
+
+.title h1 {
+  font-size: clamp(36px, 10.5vw, 112px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.055em;
+}
+
+.title span {
+  display: block;
+  white-space: nowrap;
+}
+tour-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+.tour-link:hover {
+  color: #999999;
+}
+/* Tour dates */
+
+.tour-dates {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.date {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: max-content;
+  margin: 0;
+
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: clamp(17px, 3.5vw, 38px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+/* Scattered positions */
+
+.date:nth-child(1) {
+  top: 29%;
+  left: 5%;
+}
+
+.date:nth-child(2) {
+  top: 40%;
+  right: 5%;
+}
+
+.date:nth-child(3) {
+  top: 53%;
+  left: -13%;
+}
+
+.date:nth-child(4) {
+  top: 68%;
+  right: -12%;
+}
+
+.date:nth-child(5) {
+  top: 84%;
+  left: -13%;
+}
+/* Mobile */
+
+@media (max-width: 600px) {
+  .date {
+    font-size: clamp(13px, 3.8vw, 23px);
+  }
+}
+/* Artist */
+
+.artist {
+  position: absolute;
+  bottom: 3%;
+  left: 12%;
+  width: 70%;
+  z-index: 1;
+}
+
+.artist img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  filter: grayscale(100%);
+}
+/* MV inside television */
+
+.tv-screen {
+  position: absolute;
+
+  top: 65%;
+  left: 15%;
+
+  width: 48%;
+  height: 25%;
+
+  overflow: hidden;
+  z-index: 1;
+  background: transparent;
+}
+
+.tv-screen video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+
+/* Responsive layout */
+
+@media (max-width: 600px) {
+
+  .title h1 {
+    font-size: 10vw;
+  }
+
+  .slogan {
+    font-size: 2.3vw;
+  }
+
+  .tour-dates {
+    top: 30%;
+    width: 24%;
+  }
+
+  .date {
+    font-size: 2.2vw;
+    margin-bottom: 8px;
+  }
+
+  .artist {
+    width: 95%;
+    left: 2%;
+    bottom: 5%;
+  }
+}
+.tour-dates {
+  pointer-events: none;
+  z-index: 5;
+}
+
+.date {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.date:hover {
+  z-index: 20;
+}
+
+/* Hover Photo */
+
+.hover-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 180px;
+  padding: 7px;
+  background-color: #eeeeee;
+  color: black;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, -40%) scale(0.9);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+}
+
+.hover-card img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  filter: none;
+}
+
+.hover-card p {
+  margin-top: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Show photo on hover */
+
+.date:hover .hover-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .hover-card {
+    width: 120px;
+    padding: 5px;
+  }
+
+  .hover-card img {
+    height: 145px;
+  }
+
+  .hover-card p {
+    font-size: 10px;
+  }
+}.date > a {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.date > a:visited {
+  color: white;
+}
